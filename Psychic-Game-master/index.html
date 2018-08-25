@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Psychic Game!</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+<h1>Guess What Letter I'm Thinking Of!</h1>
+
+<h2>Wins:</h2>
+<p id="wins">0</p>
+
+<h2>Losses:</h2>
+<p id="losses">0</p>
+
+<h2>Number of Guesses Left:</h2>
+<p id="guesses">9</p>
+
+<h2>Letters Guessed:</h2>
+<p id="lettersGuessed"></p>
+
+
+<script type="text/javascript">
+
+var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var wins = 0;
+var losses = 0;
+var guesses = 9;
+
+var computerChoice = alphabet[Math.floor(Math.random()*alphabet.length)];
+    console.log(computerChoice)
+
+// document.onkeydown = function(event) 
+// {
+//     console.log(event.key);
+// }
+
+document.onkeydown = function(event)
+{
+  var userGuess = event.key
+
+  if(userGuess === computerChoice)
+  {
+    wins++;
+  }
+  else
+  {
+    guesses--;
+  }
+  if(guesses === 0)
+  {
+    losses++;
+  }
+  document.getElementById('wins').innerHTML = wins;
+  document.getElementById('losses').innerHTML = losses;
+  document.getElementById('guesses').innerHTML = guesses;
+}
+
+
+</script>
+
+
+
+</body>
